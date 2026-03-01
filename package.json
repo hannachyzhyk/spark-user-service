@@ -1,0 +1,27 @@
+{
+  "name": "spark-user-service",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Mykhailo Yermakov",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "node dist/main.js",
+    "dev": "ts-node -r tsconfig-paths/register src/main.ts",
+    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
+    "proto:build": "npx buf generate"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.8.0",
+    "ts-proto": "^1.136.1"
+  },
+  "devDependencies": {
+    "@bufbuild/buf": "^1.66.0",
+    "@bufbuild/protoc-gen-es": "^1.10.1",
+    "@connectrpc/protoc-gen-connect-es": "^1.7.0",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,16 @@
+version: v2
+inputs:
+  - directory: proto # Specifies the input directory containing .proto files
+plugins:
+  # This invokes protoc-gen-es to generate JavaScript/TypeScript message code
+  - local: protoc-gen-es
+    out: src/gen
+    opt:
+      # Use target=ts for TypeScript, or target=js for JavaScript
+      - target=ts
+
+  # (Optional) This invokes protoc-gen-connect-es to generate Connect RPC client/server code
+  - local: protoc-gen-connect-es
+    out: src/gen
+    opt:
+      - target=ts
