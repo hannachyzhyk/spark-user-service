@@ -1,8 +1,12 @@
-import LoginHandler from './loginHandler';
+import login from './loginHandler';
+import register from './registerHandler';
 import GetUserHandler from './getUserHandler';
+import validateToken from './validateTokenHandler';
 
 // Available functions mapped to gRPC service methods
 export default {
-    login: LoginHandler.login,
-    getUserByName: GetUserHandler.getUserByName
+  login,
+  register,
+  getUserByName: GetUserHandler.getUserByName,
+  validateToken: validateToken
 }
