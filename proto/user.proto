@@ -51,5 +51,4 @@ message ValidateTokenRequest {
 message ValidateTokenResult {
     bool valid = 1;
     string userId = 2;
-    repeated string roles = 3;
 }

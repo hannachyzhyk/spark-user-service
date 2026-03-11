@@ -371,11 +371,6 @@ export class ValidateTokenResult extends Message<ValidateTokenResult> {
    */
   userId = "";
 
-  /**
-   * @generated from field: repeated string roles = 3;
-   */
-  roles: string[] = [];
-
   constructor(data?: PartialMessage<ValidateTokenResult>) {
     super();
     proto3.util.initPartial(data, this);
@@ -386,7 +381,6 @@ export class ValidateTokenResult extends Message<ValidateTokenResult> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "valid", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
     { no: 2, name: "userId", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "roles", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ValidateTokenResult {

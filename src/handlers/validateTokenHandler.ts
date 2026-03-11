@@ -19,11 +19,10 @@ export default async function login(
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET!) as any;
-    console.log(`(server) Token valid for user: ${decoded.username} with roles: ${decoded.roles}`);
+    console.log(`(server) Token valid for user: ${decoded.username}`);
 
     const response = {
       valid: true,
-      roles: decoded.roles || []
     } as ValidateTokenResult;
 
     callback(null, response);
