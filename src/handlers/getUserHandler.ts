@@ -11,7 +11,7 @@ export default class GetUserHandler {
       callback(null, { user: mapUserToGrpcResponse(user!) } as unknown as GetUserResult);
     }
     catch (error: any) {
-      console.error(`Failed to get user: ${error.message}`);
+      console.error(`Failed to get user: ${error?.message}`);
       return callback(new Error('Failed to get user: ' + error?.message), null);
     }
 

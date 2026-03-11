@@ -17,11 +17,18 @@ export default async function login(
       return callback(new Error('User not found'), null);
     }
 
+    if (!process.env.JWT_SECRET || !process.env.JWT_LIFETIME) {
+      return callback(new Error('JWT_SECRET and JWT_LIFETIME must be set in environment variables'), null);
+    }
+
+    if (!await userRepository.comparePassword(call.request.password, user.password)) {
+      return callback(new Error('Invalid password'), null);
+    }
+
     const token = jwt.sign(
-      { id: user._id, username: user.username, roles: ['user'] }, // Payload
-      process.env.JWT_SECRET!,             // Secret key
-      { expiresIn: '24h' }                // Options (e.g., expiration)
-    );
+      { id: user._id, username: user.username, roles: ['user'] },
+      process.env.JWT_SECRET as jwt.Secret,
+      { expiresIn: process.env.JWT_LIFETIME } as jwt.SignOptions);
 
     callback(null, { token } as LoginResult);
   }

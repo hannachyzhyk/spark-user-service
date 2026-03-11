@@ -4,7 +4,7 @@ package user.v1;
 
 service UserService {
     rpc login(LoginRequest) returns (LoginResult);
-    rpc register(RegisterRequest) returns (RegisterResult);
+    rpc signUp(SignUpRequest) returns (SignUpResult);
     rpc getUserByName(GetUserByNameRequest) returns (GetUserResult);
     rpc validateToken(ValidateTokenRequest) returns (ValidateTokenResult);
 }
@@ -35,12 +35,12 @@ message LoginResult {
     optional string token = 1;
 }
 
-message RegisterRequest {
+message SignUpRequest {
     string username = 1;
     string password = 2;
 }
 
-message RegisterResult {
+message SignUpResult {
     optional string token = 1;
 }
 

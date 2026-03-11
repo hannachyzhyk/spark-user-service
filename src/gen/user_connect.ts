@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { GetUserByNameRequest, GetUserResult, LoginRequest, LoginResult, RegisterRequest, RegisterResult, ValidateTokenRequest, ValidateTokenResult } from "./user_pb.js";
+import { GetUserByNameRequest, GetUserResult, LoginRequest, LoginResult, SignUpRequest, SignUpResult, ValidateTokenRequest, ValidateTokenResult } from "./user_pb.js";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -22,12 +22,12 @@ export const UserService = {
       kind: MethodKind.Unary,
     },
     /**
-     * @generated from rpc user.v1.UserService.register
+     * @generated from rpc user.v1.UserService.signUp
      */
-    register: {
-      name: "register",
-      I: RegisterRequest,
-      O: RegisterResult,
+    signUp: {
+      name: "signUp",
+      I: SignUpRequest,
+      O: SignUpResult,
       kind: MethodKind.Unary,
     },
     /**
